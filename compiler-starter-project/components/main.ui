@@ -6,20 +6,24 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>408</width>
-    <height>600</height>
+    <width>394</width>
+    <height>580</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: #fff5ec;
+</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLineEdit" name="input_text">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>30</y>
-      <width>113</width>
+      <x>150</x>
+      <y>110</y>
+      <width>171</width>
       <height>22</height>
      </rect>
     </property>
@@ -27,11 +31,28 @@
    <widget class="QPushButton" name="button_1">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>60</y>
-      <width>80</width>
-      <height>22</height>
+      <x>60</x>
+      <y>380</y>
+      <width>61</width>
+      <height>61</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #ffdf8c;
+    color: black;
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 15px;
+    border-color: black;
+    font: bold 14px;
+    padding: 6px;
+}
+
+QPushButton:hover {
+    background-color: #ffb98e;  
+    color: black;  
+}</string>
     </property>
     <property name="text">
      <string>1</string>
@@ -40,11 +61,28 @@
    <widget class="QPushButton" name="button_2">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>60</y>
-      <width>80</width>
-      <height>22</height>
+      <x>130</x>
+      <y>380</y>
+      <width>61</width>
+      <height>61</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #ffdf8c;
+    color: black;
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 15px;
+    border-color: black;
+    font: bold 14px;
+    padding: 6px;
+}
+
+QPushButton:hover {
+    background-color: #ffb98e;  
+    color: black;  
+}</string>
     </property>
     <property name="text">
      <string>2</string>
@@ -53,48 +91,39 @@
    <widget class="QPushButton" name="button_plus">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>60</y>
-      <width>80</width>
-      <height>22</height>
+      <x>270</x>
+      <y>380</y>
+      <width>61</width>
+      <height>61</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #d2c7ff;
+    color: black;
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 15px;
+    border-color: black;
+    font: bold 14px;
+    padding: 6px;
+}
+
+QPushButton:hover {
+    background-color: #88cedb;  
+    color: black;  
+}</string>
     </property>
     <property name="text">
      <string>+</string>
     </property>
    </widget>
-   <widget class="QLabel" name="input_label">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>30</y>
-      <width>57</width>
-      <height>14</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Input:</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="output_label">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>110</y>
-      <width>57</width>
-      <height>14</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Output:</string>
-    </property>
-   </widget>
    <widget class="QLCDNumber" name="output_lcd">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>100</y>
-      <width>141</width>
+      <x>150</x>
+      <y>200</y>
+      <width>171</width>
       <height>23</height>
      </rect>
     </property>
@@ -117,23 +146,497 @@
    <widget class="QPushButton" name="button_equal">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>60</y>
-      <width>80</width>
-      <height>22</height>
+      <x>270</x>
+      <y>450</y>
+      <width>61</width>
+      <height>61</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #d2c7ff;
+    color: black;
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 15px;
+    border-color: black;
+    font: bold 14px;
+    padding: 6px;
+}
+
+QPushButton:hover {
+    background-color: #88cedb;  
+    color: black;  
+}</string>
     </property>
     <property name="text">
      <string>=</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="button_3">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>380</y>
+      <width>61</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #ffdf8c;
+    color: black;
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 15px;
+    border-color: black;
+    font: bold 14px;
+    padding: 6px;
+}
+
+QPushButton:hover {
+    background-color: #ffb98e;  
+    color: black;  
+}</string>
+    </property>
+    <property name="text">
+     <string>3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="button_4">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>310</y>
+      <width>61</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #ffdf8c;
+    color: black;
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 15px;
+    border-color: black;
+    font: bold 14px;
+    padding: 6px;
+}
+
+QPushButton:hover {
+    background-color: #ffb98e;  
+    color: black;  
+}</string>
+    </property>
+    <property name="text">
+     <string>4</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="button_5">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>310</y>
+      <width>61</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #ffdf8c;
+    color: black;
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 15px;
+    border-color: black;
+    font: bold 14px;
+    padding: 6px;
+}
+
+QPushButton:hover {
+    background-color: #ffb98e;  
+    color: black;  
+}</string>
+    </property>
+    <property name="text">
+     <string>5</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="button_6">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>310</y>
+      <width>61</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #ffdf8c;
+    color: black;
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 15px;
+    border-color: black;
+    font: bold 14px;
+    padding: 6px;
+}
+
+QPushButton:hover {
+    background-color: #ffb98e;  
+    color: black;  
+}</string>
+    </property>
+    <property name="text">
+     <string>6</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="button_7">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>240</y>
+      <width>61</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #ffdf8c;
+    color: black;
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 15px;
+    border-color: black;
+    font: bold 14px;
+    padding: 6px;
+}
+
+QPushButton:hover {
+    background-color: #ffb98e;  
+    color: black;  
+}</string>
+    </property>
+    <property name="text">
+     <string>7</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="button_8">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>240</y>
+      <width>61</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #ffdf8c;
+    color: black;
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 15px;
+    border-color: black;
+    font: bold 14px;
+    padding: 6px;
+}
+
+QPushButton:hover {
+    background-color: #ffb98e;  
+    color: black;  
+}</string>
+    </property>
+    <property name="text">
+     <string>8</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="button_9">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>240</y>
+      <width>61</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #ffdf8c;
+    color: black;
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 15px;
+    border-color: black;
+    font: bold 14px;
+    padding: 6px;
+}
+
+QPushButton:hover {
+    background-color: #ffb98e;  
+    color: black;  
+}</string>
+    </property>
+    <property name="text">
+     <string>9</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="button_0">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>450</y>
+      <width>201</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #ffdf8c;
+    color: black;
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 15px;
+    border-color: black;
+    font: bold 14px;
+    padding: 6px;
+}
+
+QPushButton:hover {
+    background-color: #ffb98e;  
+    color: black;  
+}
+</string>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="button_star">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>310</y>
+      <width>61</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #d2c7ff;
+    color: black;
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 15px;
+    border-color: black;
+    font: bold 14px;
+    padding: 6px;
+}
+
+QPushButton:hover {
+    background-color: #88cedb;  
+    color: black;  
+}</string>
+    </property>
+    <property name="text">
+     <string>*</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="button_clear">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>240</y>
+      <width>61</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #ffc5c8;
+    color: black;
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 15px;
+    border-color: black;
+    font: bold 14px;
+    padding: 6px;
+}
+
+QPushButton:hover {
+    background-color: #ff9494;  
+    color: black;  
+}</string>
+    </property>
+    <property name="text">
+     <string>C</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="pre_fix_text">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>140</y>
+      <width>171</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="post_fix_text">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>170</y>
+      <width>171</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>40</y>
+      <width>311</width>
+      <height>491</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #c5e8e2;
+border-radius: 15px;
+</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="pre_fix_label">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>100</y>
+       <width>61</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel {
+    color: black;
+    font: bold 15px &quot;Comic Sans MS&quot;; 
+}</string>
+     </property>
+     <property name="text">
+      <string>Prefix</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="input_label">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>70</y>
+       <width>61</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel {
+    color: black; 
+    font: bold 15px &quot;Comic Sans MS&quot;;
+}</string>
+     </property>
+     <property name="text">
+      <string>Input</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="output_label">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>160</y>
+       <width>57</width>
+       <height>14</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel {
+    color: black;
+    font: bold 15px &quot;Comic Sans MS&quot;; 
+}</string>
+     </property>
+     <property name="text">
+      <string>Output:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="post_fix_label">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>130</y>
+       <width>71</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel {
+    color: black;
+    font: bold 15px &quot;Comic Sans MS&quot;; 
+}</string>
+     </property>
+     <property name="text">
+      <string>Postfix</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="calculator_label">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>10</y>
+       <width>261</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel {
+    color: black; 
+    font: bold 21px &quot;Comic Sans MS&quot;;
+	qproperty-alignment: 'AlignCenter';
+}</string>
+     </property>
+     <property name="text">
+      <string>₊✩‧₊˚ Calculator ₊✩‧₊˚</string>
+     </property>
+    </widget>
+   </widget>
+   <zorder>frame</zorder>
+   <zorder>input_text</zorder>
+   <zorder>button_1</zorder>
+   <zorder>button_2</zorder>
+   <zorder>button_plus</zorder>
+   <zorder>output_lcd</zorder>
+   <zorder>button_equal</zorder>
+   <zorder>button_3</zorder>
+   <zorder>button_4</zorder>
+   <zorder>button_5</zorder>
+   <zorder>button_6</zorder>
+   <zorder>button_7</zorder>
+   <zorder>button_8</zorder>
+   <zorder>button_9</zorder>
+   <zorder>button_0</zorder>
+   <zorder>button_star</zorder>
+   <zorder>button_clear</zorder>
+   <zorder>pre_fix_text</zorder>
+   <zorder>post_fix_text</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>408</width>
+     <width>394</width>
      <height>19</height>
     </rect>
    </property>
