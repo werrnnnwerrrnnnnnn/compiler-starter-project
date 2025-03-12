@@ -59,7 +59,12 @@ class MainWindow(QMainWindow):
     
     def push(self, text:str):
         current_text:str = self.input_text.text()
-        self.input_text.setText(f"{current_text} {text}")
+
+        # Only add spaces for operators, not numbers
+        if text in ["+", "-", "*", "/"]:
+            self.input_text.setText(f"{current_text} {text} ")  # Space around operators
+        else:
+            self.input_text.setText(f"{current_text}{text}")    # No space for numbers
     
     def clear(self):
         current_text:str = ''
