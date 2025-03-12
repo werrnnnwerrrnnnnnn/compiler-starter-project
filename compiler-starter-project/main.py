@@ -61,26 +61,33 @@ class MainWindow(QMainWindow):
         current_text:str = self.input_text.text()
         self.input_text.setText(f"{current_text} {text}")
     
-    def push_equal(self):
-        print("Calculate")
-        lexer = MyLexer()
-        parser = MyParser()
-
-        memory = Memory()
-        
-        input_text = self.input_text.text()
-        result = parser.parse(lexer.tokenize(input_text))
-        print(type(result))
-        self.output_lcd.display(result)
-        # for debug
-        print(memory)
-    
     def clear(self):
         current_text:str = ''
         self.input_text.setText(current_text)
         self.output_lcd.display('0')
         self.pre_fix_text.setText('')
         self.post_fix_text.setText('')
+
+    def push_equal(self):
+        print("\n📍Calculating...")
+        lexer = MyLexer()
+        parser = MyParser()
+        memory = Memory()
+        
+        input_text = self.input_text.text()
+        prefix = parser.pre_fix_expr(input_text)
+        postfix = parser.post_fix_expr(input_text)
+        result = parser.parse(lexer.tokenize(input_text))
+
+        print(type(result))
+        self.output_lcd.display(result)
+        self.post_fix_text.setText(postfix)
+        self.pre_fix_text.setText(prefix)
+
+        print(f"\nResult from parser: {result}")
+
+        # for debug
+        print(memory)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

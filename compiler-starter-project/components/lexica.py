@@ -35,7 +35,7 @@ class MyLexer(Lexer):
         # Note that this function set parse token.value to integer
         token.value = int(token.value)
         # Extra print for debug
-        print(f"====This print from NUMBER function: {token.type=} {token.value=} {type(token.value)=}")
+        print(f"==== Print from NUMBER function: {token.type=} | {token.value=} | {type(token.value)=}")
         return token
 
     # Try uncomment this and run to see the differences between `token` and `literal`

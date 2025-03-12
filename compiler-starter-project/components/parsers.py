@@ -34,7 +34,8 @@ class MyParser(Parser):
     def expr(self, p):
         # You can refer to the token 2 ways
         # Way1: using array
-        print(p[0], p[1], p[2])
+        # print(p[0], p[1], p[2])
+
         # Way2: using symbol name. 
         # Here, if you have more than one symbols with the same name
         # You have to indiciate the number at the end.
@@ -68,52 +69,43 @@ class MyParser(Parser):
     def expr(self, p):
         return int(p.NUMBER)
 
+    def pre_fix_expr(self, input_text):
+        tokens = input_text.split()
+        prefix = []
+        operator_stack = []
+        precedence = {'+': 2, '-': 2, '*': 1, '/': 1}
 
-from components.ast.statement import Expression, Expression_math, Expression_number, Operations
-class ASTParser(Parser):
-    debugfile = 'parser.out'
-    start = 'statement'
-    # Get the token list from the lexer (required)
-    tokens = MyLexer.tokens
-    precedence = (
-        ('left', "+", MINUS),
-        # ('left', TIMES, DIVIDE),
-        # ('right', UMINUS),
-        )
+        for token in reversed(list(tokens)):
+            if token.isdigit():
+                prefix.append(token)
+            elif token in precedence:
+                while (operator_stack and
+                    precedence[token] <= precedence[operator_stack[-1]]):
+                    prefix.append(operator_stack.pop())
+                operator_stack.append(token)
 
-    @_('expr')
-    def statement(self, p) -> int:
-        p.expr.run()
-        return p.expr.value
+        while operator_stack:
+            prefix.append(operator_stack.pop())
+        prefix.reverse()
+        prefix_str = ' '.join(prefix)
 
-    @_('expr "+" expr')
-    def expr(self, p) -> Expression:
-        parameter1 = p.expr0
-        parameter2 = p.expr1
-        expr = Expression_math(operation=Operations.PLUS, parameter1=parameter1, parameter2=parameter2)
-        return expr
+        return prefix_str
     
-    @_('expr MINUS expr')
-    def expr(self, p) -> Expression:
-        parameter1 = p.expr0
-        parameter2 = p.expr1
-        expr = Expression_math(operation=Operations.MINUS, parameter1=parameter1, parameter2=parameter2)
-        return expr
+    def post_fix_expr(self, expression):
+        operator_stack = []
+        postfix = []
+        tokens = expression.split()
+        precedence = {'+': 2, '-': 2, '*': 1, '/': 1}
 
-    @_('NUMBER')
-    def expr(self, p) -> Expression:
-        return Expression_number(number=p.NUMBER)
+        for token in tokens:
+            if token.isdigit():
+                postfix.append(token)
+            else:
+                while operator_stack and precedence.get(operator_stack[-1], 0) >= precedence.get(token, 0):
+                    postfix.append(operator_stack.pop())
+                operator_stack.append(token)
         
-        
+        postfix.extend(reversed(operator_stack))
+        postfix_str = ' '.join(postfix)
 
-        
-if __name__ == "__main__":
-    lexer = MyLexer()
-    # parser = MyParser()
-    text = "9 + 2 + 3"
-    memory = Memory()
-    parser = ASTParser()
-    # text = "1 + 2 + 3"
-    result = parser.parse(lexer.tokenize(text))
-    print(result)
-    # print(memory)
+        return postfix_str
