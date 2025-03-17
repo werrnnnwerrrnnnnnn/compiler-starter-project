@@ -90,7 +90,7 @@ class MyParser(Parser):
     # -------------------------------------------
     #  Prefix Notation Conversion (e.g., `+ 3 4` instead of `3 + 4`)
     # -------------------------------------------
-    def pre_fix_expr(self, input_text):
+    def infix_to_prefix(self, input_text):
         print(f"==== Prefix Notation")
         """
         Converts an infix expression into prefix notation.
@@ -164,7 +164,7 @@ class MyParser(Parser):
     # -------------------------------------------
     # Postfix Notation Conversion (e.g., `3 4 +` instead of `3 + 4`)
     # -------------------------------------------
-    def post_fix_expr(self, expression):
+    def infix_to_postfix(self, expression):
         print(f"==== Prefix Notation")
         """
         Converts an infix expression into postfix notation.

@@ -80,8 +80,8 @@ class MainWindow(QMainWindow):
         memory = Memory()
         
         input_text = self.input_text.text()
-        prefix = parser.pre_fix_expr(input_text)
-        postfix = parser.post_fix_expr(input_text)
+        prefix = parser.infix_to_prefix(input_text)
+        postfix = parser.infix_to_postfix(input_text)
         result = parser.parse(lexer.tokenize(input_text))
 
         print(type(result))
