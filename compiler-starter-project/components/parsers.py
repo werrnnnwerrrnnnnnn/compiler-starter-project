@@ -271,23 +271,23 @@ class MyParser(Parser):
     # -------------------------------------------
     # Prefix to Postfix
     # -------------------------------------------
-    def prefix_to_postfix(self, expression):
-        """
-        Converts a prefix expression into a postfix expression.
-        Example:
-        Input: "+ 3 * 4 5"
-        Output: "3 4 5 * +"
-        """
-        stack = []
-        tokens = expression.split()[::-1]  # Reverse the input
+    # def prefix_to_postfix(self, expression):
+    #     """
+    #     Converts a prefix expression into a postfix expression.
+    #     Example:
+    #     Input: "+ 3 * 4 5"
+    #     Output: "3 4 5 * +"
+    #     """
+    #     stack = []
+    #     tokens = expression.split()[::-1]  # Reverse the input
 
-        for token in tokens:
-            if token.isdigit():  # If number, push onto stack
-                stack.append(token)
-            else:  # If operator, pop two operands and combine them
-                op1 = stack.pop()
-                op2 = stack.pop()
-                new_expr = f"{op1} {op2} {token}"  # Construct postfix
-                stack.append(new_expr)
+    #     for token in tokens:
+    #         if token.isdigit():  # If number, push onto stack
+    #             stack.append(token)
+    #         else:  # If operator, pop two operands and combine them
+    #             op1 = stack.pop()
+    #             op2 = stack.pop()
+    #             new_expr = f"{op1} {op2} {token}"  # Construct postfix
+    #             stack.append(new_expr)
 
-        return stack[0]  # The final postfix expression
+    #     return stack[0]  # The final postfix expression

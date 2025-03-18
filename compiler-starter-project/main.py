@@ -26,7 +26,7 @@ class MainWindow(QMainWindow):
 
     input_prefix: QLineEdit      # Prefix input
     output_infix: QLineEdit      # Infix output
-    output_postfix: QLineEdit    # Postfix output
+    # output_postfix: QLineEdit    # Postfix output
     output_answer: QLCDNumber    # Answer output
 
     def __init__(self, *args, **kwargs):
@@ -65,7 +65,7 @@ class MainWindow(QMainWindow):
         self.input_prefix.setText("")       # Clear prefix input
         self.output_answer.display(0)       # Reset answer display
         self.output_infix.setText("")       # Clear infix output
-        self.output_postfix.setText("")     # Clear postfix output
+        # self.output_postfix.setText("")     # Clear postfix output
 
     def push_equal(self):
         print("\n========================================================================")
@@ -82,7 +82,7 @@ class MainWindow(QMainWindow):
         if len(tokens) < 3:
             print(f"❌ ERROR: Prefix expression is too short: {input_text}")
             self.output_infix.setText("Invalid Prefix Input")
-            self.output_postfix.setText("")
+            # self.output_postfix.setText("")
             self.output_answer.display("0")
             return
 
@@ -91,12 +91,12 @@ class MainWindow(QMainWindow):
         try:
             # Convert prefix to infix and postfix
             infix_expr = parser.prefix_to_infix(input_text)
-            postfix_expr = parser.prefix_to_postfix(input_text)
+            # postfix_expr = parser.prefix_to_postfix(input_text)
 
             # Debugging
             print(f"✅ Prefix Input: {input_text}")
             print(f"✅ Converted Infix: {infix_expr}")
-            print(f"✅ Converted Postfix: {postfix_expr}")
+            # print(f"✅ Converted Postfix: {postfix_expr}")
 
             # Evaluate the infix expression
             result = parser.parse(lexer.tokenize(infix_expr))
@@ -106,14 +106,14 @@ class MainWindow(QMainWindow):
             # Display in UI
             self.output_answer.display(result)       # Show the final answer
             self.output_infix.setText(infix_expr)   # Show infix expression
-            self.output_postfix.setText(postfix_expr)  # Show postfix expression
+            # self.output_postfix.setText(postfix_expr)  # Show postfix expression
 
             print(memory)  # Debugging memory
 
         except ValueError as e:
             print(f"❌ ERROR: {e}")
             self.output_infix.setText("Invalid Prefix Input")
-            self.output_postfix.setText("")
+            # self.output_postfix.setText("")
             self.output_answer.display("0")
 
 if __name__ == "__main__":

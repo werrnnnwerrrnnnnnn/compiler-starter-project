@@ -63,6 +63,9 @@
      </rect>
     </property>
    </widget>
+
+   <!-- Commenting out output_postfix -->
+   <!--
    <widget class="QLineEdit" name="output_postfix">
     <property name="geometry">
      <rect>
@@ -73,6 +76,8 @@
      </rect>
     </property>
    </widget>
+   -->
+
    <widget class="QFrame" name="frame">
     <property name="geometry">
      <rect>
@@ -151,6 +156,9 @@ border-color: black;
       <string>Output (Answer)</string>
      </property>
     </widget>
+
+    <!-- Commenting out output_postfix_label -->
+    <!--
     <widget class="QLabel" name="output_postfix_label">
      <property name="geometry">
       <rect>
@@ -170,6 +178,8 @@ border-color: black;
       <string>Output (Postfix)</string>
      </property>
     </widget>
+    -->
+
     <widget class="QLabel" name="calculator_label">
      <property name="geometry">
       <rect>
