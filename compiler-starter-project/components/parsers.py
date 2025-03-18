@@ -87,8 +87,10 @@ class MyParser(Parser):
         # ⭐️ Handles integer numbers (e.g., 42).
         return int(p.NUMBER)
 
+# ------------------------ Input = Infix / Output = Prefix, Postfix, Answer ------------------------ #
+
     # -------------------------------------------
-    #  Prefix Notation Conversion (e.g., `+ 3 4` instead of `3 + 4`)
+    #  Infix to Prefix
     # -------------------------------------------
     def infix_to_prefix(self, input_text):
         print(f"==== Prefix Notation")
@@ -162,7 +164,7 @@ class MyParser(Parser):
             return f"ERROR: {e}"
     
     # -------------------------------------------
-    # Postfix Notation Conversion (e.g., `3 4 +` instead of `3 + 4`)
+    # Infix to Postfix
     # -------------------------------------------
     def infix_to_postfix(self, expression):
         print(f"==== Prefix Notation")
@@ -219,3 +221,73 @@ class MyParser(Parser):
         print(f"✅ Final Postfix Expression: {final_postfix}\n")
 
         return final_postfix
+# ------------------------ Input = Prefix / Output = Infix, Postfix, Answer ------------------------ #
+    # -------------------------------------------
+    # Prefix to Infix
+    # -------------------------------------------
+    def prefix_to_infix(self, expression):
+        """
+        Converts a prefix expression into an infix expression.
+        Example:
+        Input: "+ 3 * 4 5"
+        Output: "(3 + (4 * 5))"
+        """
+        stack = []
+        tokens = expression.strip().split()
+
+        # ✅ Ensure the prefix expression starts with an operator
+        if not tokens[0] in {'+', '-', '*', '/'}:
+            raise ValueError(f"❌ Prefix expression must start with an operator: {expression}")
+
+        # Reverse the token list for processing
+        tokens.reverse()
+
+        print(f"🟠 Tokens (Reversed): {tokens}")    # Debugging
+
+        for token in tokens:
+            if token.isdigit():                     # If it's a number, push it onto the stack
+                stack.append(token)
+            elif token.lstrip('-').isdigit():       # Handle negative numbers
+                stack.append(token)
+            elif token in {'+', '-', '*', '/'}:     # If operator, pop two operands and construct expression
+                if len(stack) < 2:
+                    print(f"❌ Operator '{token}' is missing operands. Stack before error: {stack}")
+                    raise ValueError(f"❌ Invalid prefix expression: {expression} (Operator '{token}' has fewer than 2 operands)")
+
+                op1 = stack.pop()
+                op2 = stack.pop()
+                new_expr = f"({op1} {token} {op2})"  # Construct infix expression
+                stack.append(new_expr)
+
+                print(f"🔹 Processed Operator '{token}': {new_expr}")  # Debugging
+            else:
+                raise ValueError(f"❌ Invalid character in expression: {token}")
+
+        if len(stack) != 1:
+            raise ValueError(f"❌ Invalid prefix expression: {expression} (Stack leftover: {stack})")
+
+        return stack[0]  # The final infix expression
+    
+    # -------------------------------------------
+    # Prefix to Postfix
+    # -------------------------------------------
+    def prefix_to_postfix(self, expression):
+        """
+        Converts a prefix expression into a postfix expression.
+        Example:
+        Input: "+ 3 * 4 5"
+        Output: "3 4 5 * +"
+        """
+        stack = []
+        tokens = expression.split()[::-1]  # Reverse the input
+
+        for token in tokens:
+            if token.isdigit():  # If number, push onto stack
+                stack.append(token)
+            else:  # If operator, pop two operands and combine them
+                op1 = stack.pop()
+                op2 = stack.pop()
+                new_expr = f"{op1} {op2} {token}"  # Construct postfix
+                stack.append(new_expr)
+
+        return stack[0]  # The final postfix expression
